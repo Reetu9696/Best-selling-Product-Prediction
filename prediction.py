@@ -61,16 +61,16 @@ top_product_row = df_future_raw.loc[df_future_raw['Predicted_2026_Quantity'].idx
 
 # B. Find the breakdown of maximum selling products per specific months
 monthly_max = df_future_raw.loc[df_future_raw.groupby('Month')['Predicted_2026_Quantity'].idxmax()]
-print("==========================================================")
-print("🎯 RESUME PROJECT PREDICTIVE REPORT (FORECAST YEAR: 2026)")
-print("==========================================================\n")
-print(f"🔥 FUTURE MAX SELLING PRODUCT FOR 2026 = [ {top_product_row['Product_Name']} ]")
-print(f"📦 Category: {top_product_row['Product_Category']}")
-print(f"📈 Predicted Monthly Peak Volume: {top_product_row['Predicted_2026_Quantity']:.0f} units")
-print(f"📅 Peak Selling Month: Month {top_product_row['Month']}\n")
+# print("==========================================================")
+# print(" RESUME PROJECT PREDICTIVE REPORT (FORECAST YEAR: 2026)")
+# print("==========================================================\n")
+# print(f" FUTURE MAX SELLING PRODUCT FOR 2026 = [ {top_product_row['Product_Name']} ]")
+# print(f" Category: {top_product_row['Product_Category']}")
+# print(f" Predicted Monthly Peak Volume: {top_product_row['Predicted_2026_Quantity']:.0f} units")
+# print(f" Peak Selling Month: Month {top_product_row['Month']}\n")
 
-print("📋 2026 MONTH-BY-MONTH INVENTORY DEMAND TARGETS:")
+print(" 2026 MONTH-BY-MONTH INVENTORY DEMAND TARGETS:")
 print("----------------------------------------------------------")
 for idx, row in monthly_max.iterrows():
     month_name = pd.to_datetime(f"2026-{row['Month']}-01").strftime('%B')
-    print(f"📍 {month_name:9}: High-Stock Alert for [ {row['Product_Name']:15} ] ({row['Predicted_2026_Quantity']:.0f} units predicted)")
+    print(f" {month_name:9}: High-Stock Alert for [ {row['Product_Name']:15} ] ({row['Predicted_2026_Quantity']:.0f} units predicted)")
